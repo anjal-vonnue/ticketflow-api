@@ -244,7 +244,12 @@ export class TicketService {
       );
     }
 
-    return repository.update(ticketId, { status: nextStatus });
+    return repository.changeStatus(
+      ticketId,
+      ticket.status,
+      nextStatus,
+      currentUser.userId
+    );
   }
 
   async assignTicket(
