@@ -1,5 +1,5 @@
 import z from 'zod';
-import { paginationQuerySchema } from '../tickets/ticket.schemas';
+import { paginationQuerySchema } from '../tickets/ticket.schemas.js';
 
 export const ticketIdParamForCommentsSchema = z.object({
   ticketId: z.string().min(1)
