@@ -101,4 +101,22 @@ export class TicketRepository {
       }
     });
   }
+
+  async getStatusHistory(ticketId: string) {
+    return prisma.statusHistory.findMany({
+      where: { ticketId },
+      orderBy: {
+        createdAt: 'asc'
+      },
+      include: {
+        changedBy: {
+          select: {
+            id: true,
+            name: true,
+            role: true
+          }
+        }
+      }
+    });
+  }
 }
