@@ -178,3 +178,11 @@ ticketRoutes.get(
     commentController.list(req, res).catch(next);
   }
 );
+
+ticketRoutes.get(
+  '/:id/status-history',
+  validate({ params: ticketIdParamSchema }),
+  (req, res, next) => {
+    ticketController.getStatusHistory(req, res).catch(next);
+  }
+);
